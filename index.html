@@ -67,7 +67,7 @@
     }
 
     /* Typography */
-    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--color-text-title); line-height: 1.2; letter-spacing: -0.03em; }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--color-text-title); line-height: 1.25; letter-spacing: -0.03em; }
 
     /* Layout utilities */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
@@ -274,12 +274,12 @@
     @keyframes wave { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
 
     .options-panel { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); }
-    .options-title { font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;}
+    .options-title { font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;}
     
     .reply-btn {
-      width: 100%; padding: 14px 16px; background: #fff; border: 2px solid var(--color-border);
-      border-radius: 16px; text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--color-text-body);
-      margin-bottom: 8px; cursor: pointer; transition: all 0.3s var(--spring-bouncy); display: flex; justify-content: space-between; align-items: center;
+      width: 100%; padding: 10px 14px; background: #fff; border: 2px solid var(--color-border);
+      border-radius: 14px; text-align: left; font-size: 0.8rem; font-weight: 600; color: var(--color-text-body);
+      margin-bottom: 6px; cursor: pointer; transition: all 0.3s var(--spring-bouncy); display: flex; justify-content: space-between; align-items: center;
     }
     .reply-btn:hover { border-color: var(--color-mint-main); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(46, 196, 182, 0.1); }
     .reply-btn.selected { background: var(--color-mint-light); border-color: var(--color-mint-main); color: var(--color-mint-hover); }
@@ -305,23 +305,23 @@
       background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border: 1px solid #fff; border-radius: 32px; padding: 56px;
       box-shadow: var(--shadow-lg);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;
     }
     .stat-visual { text-align: center; }
-    .stat-number { font-size: 5.5rem; font-weight: 800; font-family: 'Poppins', sans-serif; line-height: 1; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-number { font-size: 4rem; font-weight: 800; font-family: 'Poppins', sans-serif; line-height: 1; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .stat-label { font-size: 1.25rem; font-weight: 600; color: var(--color-text-muted); margin-top: 8px; }
     
-    .stat-progress { height: 20px; background: var(--color-lavender-light); border-radius: 10px; margin-top: 24px; overflow: hidden; }
+    .stat-progress { height: 16px; background: var(--color-lavender-light); border-radius: 10px; margin-top: 12px; overflow: hidden; }
     .stat-fill { height: 100%; width: 0%; background: var(--gradient-primary); transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); border-radius: 10px; }
 
-    .stat-text h2 { font-size: 2rem; margin-bottom: 16px; }
-    .stat-source { font-size: 0.9rem; font-weight: 600; color: var(--color-lavender-main); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-text h2 { font-size: 1.85rem; margin-bottom: 20px; font-weight: 700; line-height: 1.4; }
+    .stat-source { font-size: 0.9rem; font-weight: 600; color: var(--color-lavender-main); line-height: 1.5; }
 
     /* ==========================================================================
        How It Works Section
        ========================================================================== */
-    .steps-section { padding: 120px 0; }
-    .section-header { text-align: center; margin-bottom: 80px; }
+    .steps-section { padding: 100px 0 60px; }
+    .section-header { text-align: center; margin-bottom: 70px; }
     .section-title { font-size: 2.8rem; margin-bottom: 16px; }
     
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -335,7 +335,12 @@
     .step-icon { width: 56px; height: 56px; border-radius: 16px; background: var(--color-lavender-light); color: var(--color-lavender-main); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; position: relative; z-index: 2; transition: var(--transition-base); }
     .step-card:hover .step-icon { background: var(--color-mint-light); color: var(--color-mint-main); transform: scale(1.1) rotate(-5deg); }
     .step-title { font-size: 1.35rem; margin-bottom: 12px; position: relative; z-index: 2; }
-    .step-desc { color: var(--color-text-muted); position: relative; z-index: 2; }
+    .step-desc { color: var(--color-text-muted); position: relative; z-index: 2; font-size: 0.95rem; }
+
+    /* ==========================================================================
+       Features Section (Built for real conversations)
+       ========================================================================== */
+    .features-section { padding: 60px 0 100px; }
 
     /* ==========================================================================
        Differentiation Feature
@@ -353,7 +358,7 @@
     /* ==========================================================================
        Premium Waitlist Form
        ========================================================================== */
-    .waitlist { padding: 120px 0; text-align: center; }
+    .waitlist { padding: 100px 0; text-align: center; }
     .waitlist-wrapper {
       max-width: 640px; margin: 0 auto; background: #fff; padding: 64px 48px;
       border-radius: 32px; box-shadow: var(--shadow-lg); border: 1px solid var(--color-border);
@@ -396,7 +401,7 @@
     @media (max-width: 576px) {
       .hero-h1 { font-size: 2.8rem; }
       .stat-card { padding: 40px 24px; }
-      .stat-number { font-size: 4rem; }
+      .stat-number { font-size: 3.5rem; }
       .form-group { flex-direction: column; background: transparent; padding: 0; box-shadow: none; }
       .form-input { padding: 18px 24px; background: #fff; border: 2px solid var(--color-border); border-radius: 999px; }
       .waitlist-wrapper { padding: 48px 24px; }
@@ -473,15 +478,42 @@
     <!-- STATS SECTION -->
     <section class="stats container reveal delay-1">
       <div class="stat-card">
-        <div class="stat-visual">
-          <div class="stat-number"><span id="stat-counter">0</span>%</div>
-          <div class="stat-label">of Young Adults (16–29)</div>
-          <div class="stat-progress"><div class="stat-fill" id="stat-fill"></div></div>
+        <div class="stat-visual" style="display: flex; flex-direction: column; gap: 24px; text-align: left;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="stat-number"><span id="stat-counter-1">0</span>%</span>
+              <span class="stat-label" style="font-size: 0.95rem; font-weight: 600; color: var(--color-text-muted); margin-top: 0;">All Germans (16+)</span>
+            </div>
+            <div class="stat-progress" style="margin-top: 8px; height: 12px;"><div class="stat-fill" id="stat-fill-1" style="width: 0%;"></div></div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <span class="stat-number" style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span id="stat-counter-2">0</span>%</span>
+              <span class="stat-label" style="font-size: 0.95rem; font-weight: 600; color: var(--color-text-muted); margin-top: 0;">Young Adults (16–29)</span>
+            </div>
+            <div class="stat-progress" style="margin-top: 8px; height: 12px;"><div class="stat-fill" id="stat-fill-2" style="width: 0%;"></div></div>
+          </div>
         </div>
-        <div class="stat-text">
-          <h2>Feel anxious about answering phone calls in Germany.</h2>
-          <div class="stat-source">Source: Bitkom Research</div>
+        <div class="stat-text" style="display: flex; flex-direction: column; justify-content: center;">
+          <h2>
+            1 in 3 Germans have postponed a phone call out of anxiety.<br>
+            <span style="color: var(--color-lavender-main);">Among 16–29 year-olds, it's nearly 1 in 2.</span>
+          </h2>
+          <div class="stat-source">— Bitkom Research, Germany's leading digital economy association</div>
         </div>
+      </div>
+    </section>
+
+    <!-- WHY NOT JUST AVOID CALLS? SECTION -->
+    <section class="objection-section container reveal">
+      <div style="background: rgba(115, 98, 227, 0.03); border: 1px solid var(--color-border); border-radius: 32px; padding: 60px 48px; text-align: center; max-width: 900px; margin: 0 auto;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px; font-weight: 700; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.3;">
+          Avoiding calls doesn't fix the fear.<br>
+          <span style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Talking through them does — just not alone.</span>
+        </h2>
+        <p style="font-size: 1.15rem; color: var(--color-text-body); line-height: 1.7; max-width: 720px; margin: 0 auto; text-align: center;">
+          Textify isn't about hiding from phone calls forever. It's a bridge: you stay present in every conversation, choose exactly what to say, and build real confidence one call at a time — without the panic of finding the words on the spot.
+        </p>
       </div>
     </section>
 
@@ -496,19 +528,44 @@
           <div class="step-num">1</div>
           <div class="step-icon"><svg width="28" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" /></svg></div>
           <h3 class="step-title">Textify Listens</h3>
-          <p class="step-desc">When a call rings, route it to Textify. It answers instantly and live-transcribes the caller's voice directly onto your screen.</p>
+          <p class="step-desc">A call comes in. Textify listens in real time, right alongside you.</p>
         </div>
         <div class="step-card reveal delay-2">
           <div class="step-num">2</div>
           <div class="step-icon"><svg width="28" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" /></svg></div>
           <h3 class="step-title">Tap Your Reply</h3>
-          <p class="step-desc">Read the transcript in real-time. Textify suggests two contextual quick replies, or you can instantly type your own custom response.</p>
+          <p class="step-desc">In under 2 seconds, you see 3 natural reply options — or type your own.</p>
         </div>
-        <div class="step-card reveal delay-1"> <!-- Delay resets for staggered visual -->
+        <div class="step-card reveal delay-1">
           <div class="step-num">3</div>
           <div class="step-icon"><svg width="28" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53L6.75 15.75H4.875c-.621 0-1.125-.504-1.125-1.125v-5.25c0-.621.504-1.125 1.125-1.125H6.75z" /></svg></div>
           <h3 class="step-title">AI Speaks Naturally</h3>
-          <p class="step-desc">Tap send, and Textify’s ultra-realistic voice engine speaks your reply to the caller. They get an answer, you keep your peace of mind.</p>
+          <p class="step-desc">Tap one. Textify speaks it in a warm, natural voice. You never freeze up.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILT FOR REAL CONVERSATIONS SECTION -->
+    <section class="features-section container">
+      <div class="section-header reveal">
+        <h2 class="section-title" style="font-size: 2.3rem;">Built for real conversations</h2>
+        <p style="font-size: 1.15rem; color: var(--color-text-muted);">Features designed to give you calm confidence on every call.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal delay-1" style="background: rgba(255, 255, 255, 0.5); border: 1px solid var(--color-border); padding: 40px 28px;">
+          <div class="step-icon" style="background: var(--color-mint-light); color: var(--color-mint-main);"><svg width="24" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></div>
+          <h3 class="step-title" style="font-size: 1.2rem; margin-bottom: 8px;">3 smart options</h3>
+          <p class="step-desc" style="font-size: 0.95rem;">Textify reads the room and gives you real choices, not generic scripts.</p>
+        </div>
+        <div class="step-card reveal delay-2" style="background: rgba(255, 255, 255, 0.5); border: 1px solid var(--color-border); padding: 40px 28px;">
+          <div class="step-icon" style="background: var(--color-mint-light); color: var(--color-mint-main);"><svg width="24" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg></div>
+          <h3 class="step-title" style="font-size: 1.2rem; margin-bottom: 8px;">Say it your way</h3>
+          <p class="step-desc" style="font-size: 0.95rem;">Don't like the options? Type your own reply, any time.</p>
+        </div>
+        <div class="step-card reveal delay-1" style="background: rgba(255, 255, 255, 0.5); border: 1px solid var(--color-border); padding: 40px 28px;">
+          <div class="step-icon" style="background: var(--color-mint-light); color: var(--color-mint-main);"><svg width="24" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg></div>
+          <h3 class="step-title" style="font-size: 1.2rem; margin-bottom: 8px;">You're always in control</h3>
+          <p class="step-desc" style="font-size: 0.95rem;">Textify never sends anything you haven't chosen.</p>
         </div>
       </div>
     </section>
@@ -521,6 +578,16 @@
           <h3>You stay completely in control.</h3>
           <p>Unlike automated AI voice bots that try to hold conversations independently, <strong>Textify never decides for you</strong>. It acts purely as your voice proxy. You read, you decide, and it executes.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER / CATEGORY DEFENSE SECTION -->
+    <section class="disclaimer-section container reveal" style="margin-top: 80px;">
+      <div style="border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 48px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-lavender-main); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 12px;">Not a diagnosis. Just support.</span>
+        <p style="font-size: 1.05rem; color: var(--color-text-muted); line-height: 1.7; max-width: 680px; margin: 0 auto;">
+          Phone anxiety isn't something you need a diagnosis for to deserve support. Textify is a communication tool — not therapy, not a medical device — just a way to make one of life's small daily hurdles a little easier.
+        </p>
       </div>
     </section>
 
@@ -576,8 +643,12 @@
           // Trigger stat counter if it's the stats section
           if (entry.target.classList.contains('stats') && !entry.target.dataset.counted) {
             entry.target.dataset.counted = "true";
-            animateCounter(document.getElementById('stat-counter'), 50, 1500);
-            setTimeout(() => document.getElementById('stat-fill').style.width = '50%', 200);
+            animateCounter(document.getElementById('stat-counter-1'), 33, 1200);
+            animateCounter(document.getElementById('stat-counter-2'), 50, 1500);
+            setTimeout(() => {
+              document.getElementById('stat-fill-1').style.width = '33%';
+              document.getElementById('stat-fill-2').style.width = '50%';
+            }, 200);
           }
         }
       });
@@ -644,6 +715,7 @@
               <div class="options-title">Tap to Reply</div>
               <button class="reply-btn" onclick="demoReply('Ja, bitte vor die Tür legen.')"><span>"Ja, bitte vor die Tür legen."</span> <span>👉</span></button>
               <button class="reply-btn" onclick="demoReply('Nein, bitte beim Nachbarn abgeben.')"><span>"Nein, beim Nachbarn abgeben."</span> <span>👉</span></button>
+              <button class="reply-btn" onclick="demoReply('Ich komme sofort runter.')"><span>"Ich komme sofort runter."</span> <span>👉</span></button>
             </div>
             <div class="options-panel" id="speakingPanel" style="display:none;">
               <div class="options-title">Textify is speaking <div class="audio-waves"><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div></div></div>
