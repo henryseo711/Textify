@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textify — Quick Start Walkthrough</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-lavender-dark: #5b4dbf;
+      --color-lavender-main: #7362E3;
+      --color-lavender-light: #EBE9FA;
+      --color-mint-main: #2EC4B6;
+      --color-mint-light: #E2F8F5;
+      --color-text-title: #110e1e;
+      --color-text-body: #4a455a;
+      --color-text-muted: #827c96;
+      --color-bg-base: #fbfbfd;
+      --color-bg-card: #ffffff;
+      --color-border: rgba(115, 98, 227, 0.12);
+      --gradient-primary: linear-gradient(135deg, var(--color-lavender-main) 0%, var(--color-mint-main) 100%);
+      --shadow-sm: 0 4px 12px rgba(17, 14, 30, 0.03);
+      --shadow-md: 0 12px 32px rgba(17, 14, 30, 0.06), 0 2px 8px rgba(115, 98, 227, 0.03);
+      --shadow-lg: 0 24px 48px rgba(17, 14, 30, 0.08), 0 8px 16px rgba(115, 98, 227, 0.05);
+      --transition-base: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg-base);
+      color: var(--color-text-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--color-text-title); line-height: 1.25; letter-spacing: -0.03em; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+    
+    /* ── Header ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 0;
+      background: rgba(251, 251, 253, 0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(115, 98, 227, 0.1);
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--gradient-primary); border-radius: 12px;
+      color: white; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 16px rgba(115, 98, 227, 0.2);
+    }
+    .logo-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--color-text-title); }
+    
+    .nav-controls { display: flex; align-items: center; gap: 16px; }
+    .back-btn {
+      background: rgba(115,98,227,0.1); color: var(--color-lavender-main);
+      padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; transition: var(--transition-base);
+    }
+    .back-btn:hover { background: rgba(115,98,227,0.15); transform: translateY(-2px); }
+
+    /* ── Hero ── */
+    .hero { padding: 140px 0 60px; text-align: center; }
+    .hero h1 { font-size: 3rem; margin-bottom: 16px; }
+    .hero p { font-size: 1.15rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto; }
+
+    /* ── Manual Deck ── */
+    .manual-deck { max-width: 900px; margin: 0 auto 100px; display: flex; flex-direction: column; gap: 40px; }
+    .deck-slide { 
+      background: #fff; border-radius: 24px; box-shadow: var(--shadow-md); 
+      overflow: hidden; border: 1px solid var(--color-border);
+      transition: var(--transition-base);
+      transform: translateY(20px); opacity: 0;
+    }
+    .deck-slide.active { transform: translateY(0); opacity: 1; }
+    .deck-slide img { width: 100%; height: auto; display: block; }
+    .deck-slide:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+
+    /* ── Footer ── */
+    footer { padding: 60px 0 40px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); background: #fff; }
+    .footer-logo { display: inline-flex; align-items: center; gap: 8px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--color-text-title); text-decoration: none; margin-bottom: 16px; opacity: 0.5; transition: opacity 0.3s; }
+    .footer-logo:hover { opacity: 1; }
+    .footer-origin { color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 8px; }
+    .footer-links { margin-top: 16px; display: flex; justify-content: center; gap: 24px; }
+    .footer-links a { font-size: 0.85rem; color: var(--color-text-muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--color-lavender-main); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><div class="logo-mark">T</div><div class="logo-text">Textify</div></a>
+      <div class="nav-controls">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1>Quick Start Walkthrough</h1>
+      <p>A real-time call assistance layer for users who can listen and decide, but do not want to speak directly on a phone call.</p>
+    </section>
+
+    <section class="container manual-deck">
+      <div class="deck-slide reveal"><img src="assets/page_1.png" alt="Walkthrough Cover"></div>
+      <div class="deck-slide reveal"><img src="assets/page_2.png" alt="Step 1 & 2: Incoming Call & Live Transcript"></div>
+      <div class="deck-slide reveal"><img src="assets/page_3.png" alt="Step 3 & 4: Choose a reply & Send filler"></div>
+      <div class="deck-slide reveal"><img src="assets/page_4.png" alt="Step 5 & 6: Textify speaks & Follow-up handling"></div>
+      <div class="deck-slide reveal"><img src="assets/page_5.png" alt="Step 7 & 8: Free-text control & Call summary"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <a href="#" class="footer-logo"><div class="logo-mark" style="width:24px;height:24px;font-size:0.8rem;border-radius:6px;">T</div> Textify</a>
+      <p style="font-size:0.9rem;color:var(--color-text-body);margin-bottom:4px;">by <strong>Jinseok Seo</strong></p>
+      <p class="footer-origin">Kyungpook National University, Dept. of Computer Science<br>Made in Korea, built for Germany 🇩🇪</p>
+      <a href="mailto:henryseo711@gmail.com" style="font-size:0.9rem;color:var(--color-lavender-main);text-decoration:none;">henryseo711@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('active');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
