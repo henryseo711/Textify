@@ -851,6 +851,15 @@
     // Phone Demo
     const demoRoot = document.getElementById('demoRoot');
     let state = 'RINGING';
+    let demoTimeouts = [];
+    
+    function clearDemoTimeouts() {
+      demoTimeouts.forEach(clearTimeout);
+      demoTimeouts = [];
+    }
+    function addDemoTimeout(fn, delay) {
+      demoTimeouts.push(setTimeout(fn, delay));
+    }
 
     const renderDemo = () => {
       const isDe = document.body.classList.contains('lang-de');
@@ -879,22 +888,45 @@
     };
 
     function demoAnswer() {
+      clearDemoTimeouts();
       state = 'ACTIVE'; renderDemo();
-      setTimeout(() => {
-        document.getElementById('typing').style.display = 'none';
-        const t = document.getElementById('transcriptionText'); t.style.display = 'inline';
+      addDemoTimeout(() => {
+        const typingEl = document.getElementById('typing');
+        if(typingEl) typingEl.style.display = 'none';
+        const t = document.getElementById('transcriptionText'); 
+        if(t) t.style.display = 'inline';
         
         const isDe = document.body.classList.contains('lang-de');
         const isKo = document.body.classList.contains('lang-ko');
         const CALL_TEXT = isKo ? "안녕하세요! Henner씨 택배가 있습니다. 지금 집에 계신가요?" : (isDe ? "Hallo! Ich habe ein Paket für Henner. Sind Sie zu Hause?" : "Hello! I have a package for Henner. Are you at home?");
         
         let i = 0;
-        function tw() { if (i < CALL_TEXT.length) { t.innerHTML += CALL_TEXT.charAt(i); i++; setTimeout(tw, 30); } else { setTimeout(() => { const waitTxt = isKo ? '답변을 기다리는 중' : (isDe ? 'Wartet auf Antwort' : 'Awaiting your reply'); document.getElementById('chatStatus').innerHTML = '&bull; ' + waitTxt; document.getElementById('chatStatus').style.color = 'var(--color-text-muted)'; document.getElementById('optionsPanel').style.display = 'block'; }, 600); } }
+        function tw() { 
+          if(state !== 'ACTIVE') return;
+          if (i < CALL_TEXT.length) { 
+            if(t) t.innerHTML += CALL_TEXT.charAt(i); 
+            i++; 
+            addDemoTimeout(tw, 30); 
+          } else { 
+            addDemoTimeout(() => { 
+              if(state !== 'ACTIVE') return;
+              const waitTxt = isKo ? '답변을 기다리는 중' : (isDe ? 'Wartet auf Antwort' : 'Awaiting your reply');
+              const statusEl = document.getElementById('chatStatus');
+              const panelEl = document.getElementById('optionsPanel');
+              if(statusEl) {
+                statusEl.innerHTML = '&bull; ' + waitTxt; 
+                statusEl.style.color = 'var(--color-text-muted)';
+              }
+              if(panelEl) panelEl.style.display = 'block'; 
+            }, 600); 
+          } 
+        }
         tw();
       }, 1500);
     }
 
     function demoReply(text) {
+      clearDemoTimeouts();
       document.getElementById('optionsPanel').style.display = 'none';
       document.getElementById('speakingPanel').style.display = 'block';
       document.getElementById('selectedReply').innerText = '"' + text + '"';
@@ -909,11 +941,22 @@
       o.className = 'bubble bubble-outgoing';
       o.innerHTML = `<div style="font-size:0.65rem;font-weight:700;opacity:0.6;text-transform:uppercase;margin-bottom:2px;">Textify</div>` + text;
       ca.appendChild(o); ca.scrollTop = ca.scrollHeight;
-      setTimeout(demoEnd, 3000);
+      
+      addDemoTimeout(demoEnd, 3000);
     }
 
-    function demoEnd() { state = 'ENDED'; renderDemo(); }
-    function demoRestart() { state = 'RINGING'; renderDemo(); }
+    function demoEnd() { 
+      clearDemoTimeouts();
+      state = 'ENDED'; 
+      renderDemo(); 
+    }
+    
+    function demoRestart() { 
+      clearDemoTimeouts();
+      state = 'RINGING'; 
+      renderDemo(); 
+    }
+    
     renderDemo();
   </script>
 </body>
