@@ -53,9 +53,14 @@
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
     
     /* Language Toggle Logic */
-    body.lang-en .de { display: none !important; }
-    body.lang-de .en { display: none !important; }
+    body.lang-en .de, body.lang-en .ko { display: none !important; }
+    body.lang-de .en, body.lang-de .ko { display: none !important; }
+    body.lang-ko .en, body.lang-ko .de { display: none !important; }
     
+    /* Adjust Korean font families for better readability */
+    body.lang-ko { font-family: 'Pretendard', 'Inter', sans-serif; word-break: keep-all; }
+    body.lang-ko h1, body.lang-ko h2, body.lang-ko h3, body.lang-ko h4 { font-family: 'Pretendard', 'Poppins', sans-serif; }
+
     .lang-switcher {
       display: flex; background: rgba(115,98,227,0.1); border-radius: 20px; padding: 4px; gap: 4px;
     }
@@ -73,6 +78,8 @@
       text-decoration: none; border: none; cursor: pointer;
       transition: var(--transition-base); outline: none;
     }
+    body.lang-ko .btn { font-family: 'Pretendard', 'Inter', sans-serif; }
+    
     .btn-primary {
       background: var(--gradient-primary); color: #fff;
       box-shadow: 0 8px 24px rgba(115, 98, 227, 0.25);
@@ -122,7 +129,7 @@
     .hero { padding: 160px 0 100px; position: relative; }
     .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
     .hero-h1 { font-size: 4.2rem; margin-bottom: 24px; letter-spacing: -0.04em; }
-    .hero-h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-h1 span.hl { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .hero-p { font-size: 1.25rem; color: var(--color-text-muted); margin-bottom: 16px; max-width: 540px; }
     .hero-cta { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
     .hero-hint { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--color-text-muted); }
@@ -212,7 +219,7 @@
     .stat-text h2 { font-size: 1.85rem; margin-bottom: 20px; line-height: 1.4; }
     .stat-source { font-size: 0.9rem; font-weight: 600; color: var(--color-lavender-main); }
 
-    /* ── 8-Step Walkthrough (New) ── */
+    /* ── 8-Step Walkthrough ── */
     .walkthrough-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 40px; }
     .wt-step { background: #fff; padding: 32px 24px; border-radius: 24px; position: relative; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.03); transition: var(--transition-base); display: flex; flex-direction: column; }
     .wt-step:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--color-border); }
@@ -273,6 +280,7 @@
     .faq-list { max-width: 800px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--color-border); }
     .faq-q { width: 100%; background: none; border: none; padding: 24px 0; text-align: left; font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--color-text-title); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    body.lang-ko .faq-q { font-family: 'Pretendard', 'Inter', sans-serif; }
     .faq-q:hover { color: var(--color-lavender-main); }
     .faq-arrow { font-size: 1.2rem; transition: transform 0.3s; color: var(--color-text-muted); }
     .faq-item.open .faq-arrow { transform: rotate(180deg); }
@@ -289,6 +297,7 @@
     .form-group { display: flex; gap: 12px; background: #fbfbfd; padding: 8px; border-radius: 999px; border: 2px solid transparent; transition: border 0.3s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); }
     .form-group:focus-within { border-color: var(--color-lavender-main); background: #fff; box-shadow: 0 0 0 4px rgba(115, 98, 227, 0.1); }
     .form-input { flex-grow: 1; background: transparent; border: none; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--color-text-title); outline: none; }
+    body.lang-ko .form-input { font-family: 'Pretendard', 'Inter', sans-serif; }
     .success-msg { display: none; flex-direction: column; align-items: center; animation: fadeUp 0.6s var(--spring-bouncy); }
     .check-circle { width: 88px; height: 88px; background: var(--color-mint-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-mint-main); margin-bottom: 24px; }
     .success-msg h3 { font-size: 2rem; margin-bottom: 12px; }
@@ -307,7 +316,7 @@
       .hero-grid, .stat-card { grid-template-columns: 1fr; text-align: center; gap: 48px; }
       .hero-cta { align-items: center; }
       .hero-h1 { font-size: 3.5rem; }
-      .hero-p, .hero-de { margin-left: auto; margin-right: auto; }
+      .hero-p, .hero-de, .hero-ko { margin-left: auto; margin-right: auto; }
       .walkthrough-grid { grid-template-columns: repeat(2, 1fr); }
       .silence-grid, .outbound-grid { grid-template-columns: 1fr; }
       .feature-card, .founder-card { flex-direction: column; text-align: center; padding: 48px 32px; }
@@ -327,6 +336,8 @@
       .waitlist-wrapper { padding: 48px 24px; }
       .pricing-card { padding: 40px 24px; }
       .pricing-amount { font-size: 3rem; }
+      .lang-switcher { padding: 2px; }
+      .lang-btn { padding: 4px 8px; font-size: 0.75rem; }
     }
   </style>
 </head>
@@ -343,10 +354,12 @@
         <div class="lang-switcher">
           <button class="lang-btn active" onclick="setLang('en')">EN</button>
           <button class="lang-btn" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" onclick="setLang('ko')">KO</button>
         </div>
         <div class="beta-badge">
           <span class="en">Beta Launching Soon</span>
           <span class="de">Beta startet bald</span>
+          <span class="ko">베타 출시 임박</span>
         </div>
       </div>
     </div>
@@ -358,28 +371,33 @@
       <div class="hero-grid">
         <div class="hero-text">
           <h1 class="hero-h1">
-            <span class="en">Never fear the <span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">phone</span> again.</span>
-            <span class="de">Nie wieder Angst vorm <span style="background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Telefonieren</span>.</span>
+            <span class="en">Never fear the <span class="hl">phone</span> again.</span>
+            <span class="de">Nie wieder Angst vorm <span class="hl">Telefonieren</span>.</span>
+            <span class="ko">전화벨 소리, 더 이상 <span class="hl">두렵지 않습니다</span>.</span>
           </h1>
           <p class="hero-p">
             <span class="en">Textify answers, transcribes, and speaks for you — so you never have to. Just read the screen and tap your reply.</span>
             <span class="de">Textify nimmt Anrufe an, transkribiert und spricht für dich – damit du es nie wieder tun musst. Einfach mitlesen und antworten.</span>
+            <span class="ko">Textify가 전화를 대신 받고, 실시간으로 통화 내용을 글로 보여주며, 당신의 답변을 음성으로 전달합니다. 화면을 읽고 답변을 탭하기만 하세요.</span>
           </p>
           <div class="hero-cta">
             <div style="display: flex; gap: 16px; flex-wrap: wrap;">
               <button class="btn btn-primary" onclick="document.getElementById('waitlist').scrollIntoView();">
                 <span class="en">Join the waitlist</span>
                 <span class="de">Auf die Warteliste</span>
+                <span class="ko">출시 알림 받기</span>
               </button>
               <a href="manual.html" class="btn" style="background: rgba(115, 98, 227, 0.1); color: var(--color-lavender-main);">
                 <span class="en">View Walkthrough</span>
                 <span class="de">Anleitung ansehen</span>
+                <span class="ko">사용 방법 보기</span>
               </a>
             </div>
             <div class="hero-hint">
               <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>
               <span class="en">Early access rolling out Autumn 2026</span>
               <span class="de">Early Access startet im Herbst 2026</span>
+              <span class="ko">2026년 가을 얼리 액세스 시작</span>
             </div>
           </div>
         </div>
@@ -401,6 +419,7 @@
           <div class="try-label">
             <span class="en">↑ Try it live — tap "Use Textify"</span>
             <span class="de">↑ Live testen — tippe "Textify nutzen"</span>
+            <span class="ko">↑ 체험해보기 — "Textify 사용하기" 탭</span>
           </div>
         </div>
       </div>
@@ -411,11 +430,11 @@
       <div class="stat-card">
         <div style="display:flex;flex-direction:column;gap:24px;text-align:left;">
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;"><span class="stat-number"><span id="sc1">0</span>%</span><span class="stat-label"><span class="en">All Germans (16+)</span><span class="de">Alle Deutschen (16+)</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;"><span class="stat-number"><span id="sc1">0</span>%</span><span class="stat-label"><span class="en">All Germans (16+)</span><span class="de">Alle Deutschen (16+)</span><span class="ko">전체 독일인 (16세 이상)</span></span></div>
             <div class="stat-progress"><div class="stat-fill" id="sf1"></div></div>
           </div>
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;"><span class="stat-number"><span id="sc2">0</span>%</span><span class="stat-label"><span class="en">Young Adults (16–29)</span><span class="de">Junge Erwachsene (16-29)</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;"><span class="stat-number"><span id="sc2">0</span>%</span><span class="stat-label"><span class="en">Young Adults (16–29)</span><span class="de">Junge Erwachsene (16-29)</span><span class="ko">청년층 (16-29세)</span></span></div>
             <div class="stat-progress"><div class="stat-fill" id="sf2"></div></div>
           </div>
         </div>
@@ -423,10 +442,12 @@
           <h2 class="stat-text" style="font-size:1.85rem;margin-bottom:20px;line-height:1.4;">
             <span class="en">1 in 3 Germans have postponed a phone call out of anxiety.<br><span style="color:var(--color-lavender-main);">Among 16–29 year-olds, it's nearly 1 in 2.</span></span>
             <span class="de">Jeder 3. Deutsche hat schon mal aus Angst einen Anruf aufgeschoben.<br><span style="color:var(--color-lavender-main);">Bei den 16-29-Jährigen ist es fast jeder Zweite.</span></span>
+            <span class="ko">독일인 3명 중 1명은 통화에 대한 부담감으로 전화를 미룬 경험이 있습니다.<br><span style="color:var(--color-lavender-main);">16~29세의 경우 거의 절반에 달합니다.</span></span>
           </h2>
           <div class="stat-source" style="font-size:0.9rem;font-weight:600;color:var(--color-lavender-main);">
             <span class="en">— Bitkom Research, Germany's leading digital economy association</span>
             <span class="de">— Bitkom Research</span>
+            <span class="ko">— Bitkom Research (독일 정보통신산업협회)</span>
           </div>
         </div>
       </div>
@@ -438,53 +459,55 @@
         <h2 class="section-title">
           <span class="en">How Textify works</span>
           <span class="de">Wie Textify funktioniert</span>
+          <span class="ko">Textify 작동 방식</span>
         </h2>
         <p class="section-sub">
           <span class="en">A seamless 8-step flow that keeps you completely in control of the voice layer.</span>
           <span class="de">Ein nahtloser Ablauf in 8 Schritten, bei dem du jederzeit die volle Kontrolle behältst.</span>
+          <span class="ko">모든 대화의 주도권을 당신에게 쥐여주는 매끄러운 8단계 워크플로우.</span>
         </p>
       </div>
       
       <div class="walkthrough-grid">
         <div class="wt-step reveal delay-1">
           <div class="wt-num">1</div><div class="wt-icon">📱</div>
-          <h3 class="wt-title"><span class="en">Incoming call</span><span class="de">Eingehender Anruf</span></h3>
-          <p class="wt-desc"><span class="en">The adoption problem starts before the conversation. Textify integrates directly into your familiar native call screen.</span><span class="de">Das Problem beginnt vor dem Gespräch. Textify integriert sich direkt in deinen gewohnten Anrufbildschirm.</span></p>
+          <h3 class="wt-title"><span class="en">Incoming call</span><span class="de">Eingehender Anruf</span><span class="ko">걸려오는 전화</span></h3>
+          <p class="wt-desc"><span class="en">The adoption problem starts before the conversation. Textify integrates directly into your familiar native call screen.</span><span class="de">Das Problem beginnt vor dem Gespräch. Textify integriert sich direkt in deinen gewohnten Anrufbildschirm.</span><span class="ko">통화의 두려움은 대화가 시작되기도 전에 찾아옵니다. Textify는 당신에게 익숙한 스마트폰 기본 통화 화면에 바로 통합됩니다.</span></p>
         </div>
         <div class="wt-step reveal delay-2">
           <div class="wt-num">2</div><div class="wt-icon">📝</div>
-          <h3 class="wt-title"><span class="en">Live transcript</span><span class="de">Live-Transkription</span></h3>
-          <p class="wt-desc"><span class="en">Speech becomes readable before you have to respond. Reduce uncertainty and take your time to understand.</span><span class="de">Sprache wird lesbar, bevor du antworten musst. Nimm dir Zeit, alles in Ruhe zu verstehen.</span></p>
+          <h3 class="wt-title"><span class="en">Live transcript</span><span class="de">Live-Transkription</span><span class="ko">실시간 텍스트 변환</span></h3>
+          <p class="wt-desc"><span class="en">Speech becomes readable before you have to respond. Reduce uncertainty and take your time to understand.</span><span class="de">Sprache wird lesbar, bevor du antworten musst. Nimm dir Zeit, alles in Ruhe zu verstehen.</span><span class="ko">대답을 고민하기 전, 눈으로 먼저 통화 내용을 파악하세요. 불확실성을 줄이고 천천히 이해할 수 있는 시간을 벌어줍니다.</span></p>
         </div>
         <div class="wt-step reveal delay-3">
           <div class="wt-num">3</div><div class="wt-icon">⚡</div>
-          <h3 class="wt-title"><span class="en">Choose a reply</span><span class="de">Antwort wählen</span></h3>
-          <p class="wt-desc"><span class="en">Textify drafts three context-aware replies before the caller finishes. You remain the decision-maker.</span><span class="de">Textify erstellt in Echtzeit 3 passende Antworten. Du entscheidest immer selbst, was gesagt wird.</span></p>
+          <h3 class="wt-title"><span class="en">Choose a reply</span><span class="de">Antwort wählen</span><span class="ko">답변 선택하기</span></h3>
+          <p class="wt-desc"><span class="en">Textify drafts three context-aware replies before the caller finishes. You remain the decision-maker.</span><span class="de">Textify erstellt in Echtzeit 3 passende Antworten. Du entscheidest immer selbst, was gesagt wird.</span><span class="ko">통화 상대의 말이 끝나기도 전에 AI가 문맥에 맞는 3가지 답변을 제안합니다. 당신은 가장 적절한 답변을 고르기만 하면 됩니다.</span></p>
         </div>
         <div class="wt-step reveal delay-1">
           <div class="wt-num">4</div><div class="wt-icon">⏱️</div>
-          <h3 class="wt-title"><span class="en">Send filler</span><span class="de">Füllwörter senden</span></h3>
-          <p class="wt-desc"><span class="en">The call stays alive while you think. Natural placeholders (e.g., "Moment bitte") cover your decision time.</span><span class="de">Der Anruf bleibt aktiv, während du nachdenkst. Natürliche Füllwörter überbrücken kurze Pausen.</span></p>
+          <h3 class="wt-title"><span class="en">Send filler</span><span class="de">Füllwörter senden</span><span class="ko">대화 흐름 유지 (추임새)</span></h3>
+          <p class="wt-desc"><span class="en">The call stays alive while you think. Natural placeholders (e.g., "Moment bitte") cover your decision time.</span><span class="de">Der Anruf bleibt aktiv, während du nachdenkst. Natürliche Füllwörter überbrücken kurze Pausen.</span><span class="ko">고민하는 동안에도 통화는 끊기지 않아야 합니다. "잠시만요" 같은 자연스러운 멘트로 당신의 결정 시간을 완벽히 방어합니다.</span></p>
         </div>
         <div class="wt-step reveal delay-2">
           <div class="wt-num">5</div><div class="wt-icon">🔊</div>
-          <h3 class="wt-title"><span class="en">Textify speaks</span><span class="de">Textify spricht</span></h3>
-          <p class="wt-desc"><span class="en">The chosen reply becomes spoken call audio. You deliver it aloud without the need to speak directly.</span><span class="de">Deine gewählte Antwort wird mit einer natürlichen Stimme vorgelesen, ohne dass du selbst sprechen musst.</span></p>
+          <h3 class="wt-title"><span class="en">Textify speaks</span><span class="de">Textify spricht</span><span class="ko">음성 답변 출력</span></h3>
+          <p class="wt-desc"><span class="en">The chosen reply becomes spoken call audio. You deliver it aloud without the need to speak directly.</span><span class="de">Deine gewählte Antwort wird mit einer natürlichen Stimme vorgelesen, ohne dass du selbst sprechen musst.</span><span class="ko">선택한 답변이 자연스러운 음성으로 변환되어 상대방에게 전달됩니다. 직접 입 밖으로 소리 내어 말할 필요가 없습니다.</span></p>
         </div>
         <div class="wt-step reveal delay-3">
           <div class="wt-num">6</div><div class="wt-icon">🔄</div>
-          <h3 class="wt-title"><span class="en">Follow-up handling</span><span class="de">Kontext bleibt</span></h3>
-          <p class="wt-desc"><span class="en">The system keeps context across turns. When the caller asks for confirmation, Textify prepares the next relevant actions.</span><span class="de">Das System merkt sich den Gesprächsverlauf und bereitet sofort die nächsten logischen Schritte vor.</span></p>
+          <h3 class="wt-title"><span class="en">Follow-up handling</span><span class="de">Kontext bleibt</span><span class="ko">문맥 파악 유지</span></h3>
+          <p class="wt-desc"><span class="en">The system keeps context across turns. When the caller asks for confirmation, Textify prepares the next relevant actions.</span><span class="de">Das System merkt sich den Gesprächsverlauf und bereitet sofort die nächsten logischen Schritte vor.</span><span class="ko">시스템은 대화의 전체 문맥을 기억합니다. 꼬리를 무는 질문에도 흔들림 없이 다음 상황에 맞는 액션을 준비합니다.</span></p>
         </div>
         <div class="wt-step reveal delay-1">
           <div class="wt-num">7</div><div class="wt-icon">⌨️</div>
-          <h3 class="wt-title"><span class="en">Free-text control</span><span class="de">Eigene Texteingabe</span></h3>
-          <p class="wt-desc"><span class="en">Drafted replies are fast, but control cannot disappear. Type the exact response whenever needed.</span><span class="de">Vorschläge sind schnell, aber du hast immer das letzte Wort. Tippe jederzeit deine eigene Antwort ein.</span></p>
+          <h3 class="wt-title"><span class="en">Free-text control</span><span class="de">Eigene Texteingabe</span><span class="ko">자유 텍스트 입력</span></h3>
+          <p class="wt-desc"><span class="en">Drafted replies are fast, but control cannot disappear. Type the exact response whenever needed.</span><span class="de">Vorschläge sind schnell, aber du hast immer das letzte Wort. Tippe jederzeit deine eigene Antwort ein.</span><span class="ko">자동 추천 답변은 빠르지만, 통제권은 항상 당신에게 있어야 합니다. 필요할 땐 언제든 직접 텍스트를 쳐서 답변을 전달하세요.</span></p>
         </div>
         <div class="wt-step reveal delay-2">
           <div class="wt-num">8</div><div class="wt-icon">📋</div>
-          <h3 class="wt-title"><span class="en">Call summary</span><span class="de">Anruf-Zusammenfassung</span></h3>
-          <p class="wt-desc"><span class="en">The call becomes a reviewable outcome, not a vague memory. Review what was said and confirmed.</span><span class="de">Der Anruf wird zu einem überprüfbaren Protokoll. Sieh dir jederzeit an, was besprochen und bestätigt wurde.</span></p>
+          <h3 class="wt-title"><span class="en">Call summary</span><span class="de">Anruf-Zusammenfassung</span><span class="ko">통화 내용 요약</span></h3>
+          <p class="wt-desc"><span class="en">The call becomes a reviewable outcome, not a vague memory. Review what was said and confirmed.</span><span class="de">Der Anruf wird zu einem überprüfbaren Protokoll. Sieh dir jederzeit an, was besprochen und bestätigt wurde.</span><span class="ko">통화는 더 이상 희미한 기억으로 남지 않습니다. 무슨 말이 오갔고 무엇이 확정되었는지 완벽하게 요약된 결과물로 확인하세요.</span></p>
         </div>
       </div>
       
@@ -493,9 +516,9 @@
         <span>
           <span class="en"><strong>The real breakthrough:</strong> Total control over the voice layer. Textify never decides for you. You are not delegating to a chatbot; you are steering the conversation yourself.</span>
           <span class="de"><strong>Der eigentliche Durchbruch:</strong> Volle Kontrolle. Textify entscheidet nie für dich. Du delegierst nicht an einen Chatbot, sondern lenkst das Gespräch komplett selbst.</span>
+          <span class="ko"><strong>진짜 혁신은 여기에 있습니다:</strong> 음성 레이어에 대한 완벽한 통제권. Textify는 절대 당신 대신 결정하지 않습니다. 챗봇에게 대화를 위임하는 것이 아니라, 당신이 직접 대화의 운전대를 잡는 것입니다.</span>
         </span>
       </div>
-
     </section>
 
     <!-- 4. TEXTIFY VS ALTERNATIVES -->
@@ -504,10 +527,12 @@
         <h2 class="section-title" style="font-size:2.3rem;">
           <span class="en">Not just another call screen.</span>
           <span class="de">Nicht nur ein Anruffilter.</span>
+          <span class="ko">단순한 스팸 필터링이 아닙니다.</span>
         </h2>
         <p class="section-sub">
           <span class="en">Unlike Big Tech features that screen spam, Textify handles the <strong>entire conversation</strong> for you — on any device.</span>
           <span class="de">Im Gegensatz zu Spam-Filtern übernimmt Textify das <strong>gesamte Gespräch</strong> für dich — auf jedem Gerät.</span>
+          <span class="ko">스팸만 걸러내는 기존 빅테크 기능들과 달리, Textify는 어떤 기기에서든 <strong>대화의 시작부터 끝까지</strong> 당신을 완벽하게 지원합니다.</span>
         </p>
       </div>
       <div style="overflow-x:auto;">
@@ -515,35 +540,35 @@
           <thead>
             <tr>
               <th></th>
-              <th><span class="en">Google Call Screen<br>(Pixel Only)</span><span class="de">Google Anruf-Filter<br>(Nur Pixel)</span></th>
-              <th><span class="en">Samsung Bixby Text Call<br>(Galaxy Only)</span><span class="de">Samsung Bixby Text Call<br>(Nur Galaxy)</span></th>
+              <th><span class="en">Google Call Screen<br>(Pixel Only)</span><span class="de">Google Anruf-Filter<br>(Nur Pixel)</span><span class="ko">구글 통화 스크리닝<br>(픽셀 전용)</span></th>
+              <th><span class="en">Samsung Bixby Text Call<br>(Galaxy Only)</span><span class="de">Samsung Bixby Text Call<br>(Nur Galaxy)</span><span class="ko">삼성 빅스비 텍스트 통화<br>(갤럭시 전용)</span></th>
               <th>Textify ✦</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td style="font-weight:600;"><span class="en">Primary Purpose</span><span class="de">Hauptzweck</span></td>
-              <td><span class="en">Screening spam / unknown numbers</span><span class="de">Spam & unbekannte Nummern filtern</span></td>
-              <td><span class="en">Situational convenience ("Can't talk now")</span><span class="de">Situativ ("Kann gerade nicht sprechen")</span></td>
-              <td><span class="en">Communication accessibility (B2C) ✅</span><span class="de">Kommunikationshilfe für jeden Anruf ✅</span></td>
+              <td style="font-weight:600;"><span class="en">Primary Purpose</span><span class="de">Hauptzweck</span><span class="ko">주요 목적</span></td>
+              <td><span class="en">Screening spam / unknown numbers</span><span class="de">Spam & unbekannte Nummern filtern</span><span class="ko">스팸 및 모르는 번호 확인</span></td>
+              <td><span class="en">Situational convenience ("Can't talk now")</span><span class="de">Situativ ("Kann gerade nicht sprechen")</span><span class="ko">상황적 편의 ("지금 통화 곤란함")</span></td>
+              <td><span class="en">Communication accessibility (B2C) ✅</span><span class="de">Kommunikationshilfe für jeden Anruf ✅</span><span class="ko">통화 접근성 및 소통 지원 ✅</span></td>
             </tr>
             <tr>
-              <td style="font-weight:600;"><span class="en">AI Contextual Replies</span><span class="de">KI-generierte Antworten</span></td>
-              <td><span class="en">❌ Fixed canned chips</span><span class="de">❌ Vorgefertigte Chips</span></td>
-              <td><span class="en">❌ Pre-saved phrases</span><span class="de">❌ Vorgespeicherte Sätze</span></td>
-              <td><span class="en">✅ Real-time LLM suggestions</span><span class="de">✅ LLM-Vorschläge in Echtzeit</span></td>
+              <td style="font-weight:600;"><span class="en">AI Contextual Replies</span><span class="de">KI-generierte Antworten</span><span class="ko">AI 문맥 맞춤 답변</span></td>
+              <td><span class="en">❌ Fixed canned chips</span><span class="de">❌ Vorgefertigte Chips</span><span class="ko">❌ 고정된 기본 문구 제공</span></td>
+              <td><span class="en">❌ Pre-saved phrases</span><span class="de">❌ Vorgespeicherte Sätze</span><span class="ko">❌ 미리 저장된 문구 사용</span></td>
+              <td><span class="en">✅ Real-time LLM suggestions</span><span class="de">✅ LLM-Vorschläge in Echtzeit</span><span class="ko">✅ 실시간 LLM 답변 제안</span></td>
             </tr>
             <tr>
-              <td style="font-weight:600;"><span class="en">Outbound Delegation</span><span class="de">Ausgehende Anrufe</span></td>
-              <td><span class="en">❌ Inbound only</span><span class="de">❌ Nur eingehend</span></td>
-              <td><span class="en">❌ Inbound only</span><span class="de">❌ Nur eingehend</span></td>
-              <td><span class="en">✅ Let Textify call for you</span><span class="de">✅ Textify für dich anrufen lassen</span></td>
+              <td style="font-weight:600;"><span class="en">Outbound Delegation</span><span class="de">Ausgehende Anrufe</span><span class="ko">발신 통화 지원</span></td>
+              <td><span class="en">❌ Inbound only</span><span class="de">❌ Nur eingehend</span><span class="ko">❌ 수신 통화만 가능</span></td>
+              <td><span class="en">❌ Inbound only</span><span class="de">❌ Nur eingehend</span><span class="ko">❌ 수신 통화만 가능</span></td>
+              <td><span class="en">✅ Let Textify call for you</span><span class="de">✅ Textify für dich anrufen lassen</span><span class="ko">✅ Textify가 대신 전화 걸어줌</span></td>
             </tr>
             <tr>
-              <td style="font-weight:600;"><span class="en">Device Support</span><span class="de">Geräteunterstützung</span></td>
-              <td><span class="en">Pixel phones only</span><span class="de">Nur Pixel Smartphones</span></td>
-              <td><span class="en">Samsung devices only</span><span class="de">Nur Samsung Geräte</span></td>
-              <td><span class="en">✅ Any iOS / Android device</span><span class="de">✅ Jedes iOS / Android Gerät</span></td>
+              <td style="font-weight:600;"><span class="en">Device Support</span><span class="de">Geräteunterstützung</span><span class="ko">지원 기기</span></td>
+              <td><span class="en">Pixel phones only</span><span class="de">Nur Pixel Smartphones</span><span class="ko">구글 픽셀 폰 한정</span></td>
+              <td><span class="en">Samsung devices only</span><span class="de">Nur Samsung Geräte</span><span class="ko">삼성 갤럭시 기기 한정</span></td>
+              <td><span class="en">✅ Any iOS / Android device</span><span class="de">✅ Jedes iOS / Android Gerät</span><span class="ko">✅ 모든 iOS 및 Android 기기</span></td>
             </tr>
           </tbody>
         </table>
@@ -556,16 +581,18 @@
         <h2 class="section-title" style="font-size:2.3rem;">
           <span class="en">Hate making calls too?</span>
           <span class="de">Machst du auch ungern selbst Anrufe?</span>
+          <span class="ko">전화 거는 것도 싫어하시나요?</span>
         </h2>
         <p class="section-sub">
           <span class="en">Let Textify call for you. You type what you need — Textify dials and speaks on your behalf.</span>
           <span class="de">Lass Textify für dich anrufen. Tippe einfach, was du brauchst — Textify übernimmt das Reden.</span>
+          <span class="ko">Textify가 당신을 대신해 전화를 걸어줍니다. 원하는 내용을 텍스트로 치기만 하세요.</span>
         </p>
       </div>
       <div class="outbound-grid">
-        <div class="outbound-card reveal delay-1"><div class="outbound-emoji">📞</div><h4><span class="en">Book appointments</span><span class="de">Termine buchen</span></h4><p><span class="en">Doctor, dentist, hairdresser — schedule effortlessly.</span><span class="de">Arzt, Zahnarzt, Friseur — mühelos Termine vereinbaren.</span></p></div>
-        <div class="outbound-card reveal delay-2"><div class="outbound-emoji">📦</div><h4><span class="en">Track deliveries</span><span class="de">Lieferungen klären</span></h4><p><span class="en">Missed a package? Let Textify sort it out.</span><span class="de">Paket verpasst? Lass Textify das regeln.</span></p></div>
-        <div class="outbound-card reveal delay-3"><div class="outbound-emoji">🏢</div><h4><span class="en">Handle official calls</span><span class="de">Behördenanrufe</span></h4><p><span class="en">Navigate insurance or utilities without the stress.</span><span class="de">Versicherung oder Ämter ganz ohne Stress meistern.</span></p></div>
+        <div class="outbound-card reveal delay-1"><div class="outbound-emoji">📞</div><h4><span class="en">Book appointments</span><span class="de">Termine buchen</span><span class="ko">간편한 예약</span></h4><p><span class="en">Doctor, dentist, hairdresser — schedule effortlessly.</span><span class="de">Arzt, Zahnarzt, Friseur — mühelos Termine vereinbaren.</span><span class="ko">병원, 치과, 미용실 등 번거로운 통화 없이 예약하세요.</span></p></div>
+        <div class="outbound-card reveal delay-2"><div class="outbound-emoji">📦</div><h4><span class="en">Track deliveries</span><span class="de">Lieferungen klären</span><span class="ko">배송 문제 해결</span></h4><p><span class="en">Missed a package? Let Textify sort it out.</span><span class="de">Paket verpasst? Lass Textify das regeln.</span><span class="ko">택배 배송에 문제가 생겼나요? Textify가 알아서 문의합니다.</span></p></div>
+        <div class="outbound-card reveal delay-3"><div class="outbound-emoji">🏢</div><h4><span class="en">Handle official calls</span><span class="de">Behördenanrufe</span><span class="ko">관공서 업무 처리</span></h4><p><span class="en">Navigate insurance or utilities without the stress.</span><span class="de">Versicherung oder Ämter ganz ohne Stress meistern.</span><span class="ko">보험사나 공공기관 통화도 당황하지 않고 쉽게 해결하세요.</span></p></div>
       </div>
     </section>
 
@@ -575,24 +602,26 @@
         <h2 class="section-title" style="font-size:2.3rem;">
           <span class="en">Under the hood</span>
           <span class="de">Unter der Haube</span>
+          <span class="ko">기술 스택 및 구조</span>
         </h2>
         <p class="section-sub">
           <span class="en">Built on robust <strong>Network-Level VoIP Architecture</strong>. By operating at the network level via conditional call forwarding, Textify works seamlessly across iOS and Android without OS constraints.</span>
           <span class="de">Aufgebaut auf robuster <strong>Netzwerk-Level-VoIP-Architektur</strong>. Durch bedingte Rufumleitung funktioniert Textify nahtlos auf iOS und Android, ohne OS-Einschränkungen.</span>
+          <span class="ko">강력한 <strong>네트워크 수준의 VoIP 아키텍처</strong>를 기반으로 구축되었습니다. 통신사 착신 전환(Call Forwarding) 방식을 통해 OS 제약 없이 iOS와 Android 모두에서 완벽하게 작동합니다.</span>
         </p>
       </div>
       <div class="pipeline">
-        <div class="pipe-node"><div class="pipe-label"><span class="en">Input</span><span class="de">Eingabe</span></div><div class="pipe-desc"><span class="en">Caller's Voice</span><span class="de">Stimme des Anrufers</span></div></div>
+        <div class="pipe-node"><div class="pipe-label"><span class="en">Input</span><span class="de">Eingabe</span><span class="ko">입력</span></div><div class="pipe-desc"><span class="en">Caller's Voice</span><span class="de">Stimme des Anrufers</span><span class="ko">상대방의 음성</span></div></div>
         <div class="pipe-arrow">→</div>
         <div class="pipe-node"><div class="pipe-label">STT</div><div class="pipe-desc">Speech to Text</div></div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-node"><div class="pipe-label">LLM</div><div class="pipe-desc"><span class="en">3 Options Generated</span><span class="de">3 Optionen Generiert</span></div></div>
+        <div class="pipe-node"><div class="pipe-label">LLM</div><div class="pipe-desc"><span class="en">3 Options Generated</span><span class="de">3 Optionen Generiert</span><span class="ko">3가지 맞춤 옵션 생성</span></div></div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-node highlight"><div class="pipe-label"><span class="en">You</span><span class="de">Du</span></div><div class="pipe-desc"><span class="en">Select or Type</span><span class="de">Tippen oder Auswählen</span></div></div>
+        <div class="pipe-node highlight"><div class="pipe-label"><span class="en">You</span><span class="de">Du</span><span class="ko">사용자 (당신)</span></div><div class="pipe-desc"><span class="en">Select or Type</span><span class="de">Tippen oder Auswählen</span><span class="ko">답변 선택 혹은 직접 입력</span></div></div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-node"><div class="pipe-label">TTS</div><div class="pipe-desc"><span class="en">Natural Voice Out</span><span class="de">Natürliche Stimme</span></div></div>
+        <div class="pipe-node"><div class="pipe-label">TTS</div><div class="pipe-desc"><span class="en">Natural Voice Out</span><span class="de">Natürliche Stimme</span><span class="ko">자연스러운 음성 생성</span></div></div>
         <div class="pipe-arrow">→</div>
-        <div class="pipe-node"><div class="pipe-label"><span class="en">Output</span><span class="de">Ausgabe</span></div><div class="pipe-desc"><span class="en">Caller Hears Reply</span><span class="de">Anrufer hört Antwort</span></div></div>
+        <div class="pipe-node"><div class="pipe-label"><span class="en">Output</span><span class="de">Ausgabe</span><span class="ko">출력</span></div><div class="pipe-desc"><span class="en">Caller Hears Reply</span><span class="de">Anrufer hört Antwort</span><span class="ko">상대방에게 답변 전달</span></div></div>
       </div>
     </section>
 
@@ -603,14 +632,17 @@
         <div class="pricing-period">
           <span class="en">Less than half the price of a meditation app.<br>Also introducing a <strong>Pay-as-you-go Starter tier</strong> for irregular users.</span>
           <span class="de">Weniger als die Hälfte einer typischen Meditations-App.<br>Bald auch mit <strong>Pay-as-you-go Starter-Tarif</strong> für unregelmäßige Nutzung.</span>
+          <span class="ko">일반적인 명상 앱 구독료의 절반도 안 되는 가격입니다.<br>가끔 통화하는 분들을 위한 <strong>사용한 만큼만 내는 요금제(Pay-as-you-go)</strong>도 도입될 예정입니다.</span>
         </div>
         <button class="btn btn-white" onclick="document.getElementById('waitlist').scrollIntoView();">
           <span class="en">Join the waitlist — it's free</span>
           <span class="de">Kostenlos auf die Warteliste setzen</span>
+          <span class="ko">무료로 출시 알림 받기</span>
         </button>
         <div class="pricing-note">
           <span class="en">Beta period is completely free. No credit card required.</span>
           <span class="de">Die Beta-Phase ist komplett kostenlos. Keine Kreditkarte erforderlich.</span>
+          <span class="ko">베타 기간 동안은 완전 무료로 제공됩니다. 카드 등록이 필요 없습니다.</span>
         </div>
       </div>
     </section>
@@ -621,10 +653,12 @@
         <span style="font-size:0.85rem;font-weight:700;color:var(--color-lavender-main);text-transform:uppercase;letter-spacing:0.1em;display:block;margin-bottom:12px;">
           <span class="en">A Vision for Accessibility</span>
           <span class="de">Eine Vision für Barrierefreiheit</span>
+          <span class="ko">더 넓은 세상을 위한 비전</span>
         </span>
         <p style="font-size:1.05rem;color:var(--color-text-muted);line-height:1.7;max-width:680px;margin:0 auto;">
           <span class="en">Call anxiety is our beachhead. The same technology is designed to become vital communication infrastructure for people who cannot speak — post-laryngeal surgery, Parkinson's dysarthria, or ALS. Our long-term goal includes DiGA (Digital Health Application) integration to make Textify reimbursable by German health insurances as a medical aid.</span>
           <span class="de">Telefonangst ist nur der Anfang. Dieselbe Technologie wird als wichtige Kommunikationsinfrastruktur für Menschen dienen, die ihre Stimme verloren haben (z.B. nach Kehlkopf-OPs, bei Parkinson oder ALS). Unser langfristiges Ziel ist die DiGA-Zertifizierung, damit Textify von deutschen Krankenkassen als Hilfsmittel erstattet werden kann.</span>
+          <span class="ko">전화 공포증 해결은 우리의 첫걸음일 뿐입니다. 이 기술은 후두암 수술 환자, 파킨슨병, 루게릭병(ALS) 환자 등 신체적으로 목소리를 내기 어려운 분들을 위한 필수적인 의사소통 인프라로 설계되었습니다. 우리는 Textify가 독일 건강보험에서 100% 비용을 보장하는 공식 의료기기(DiGA)로 등재되는 것을 장기적인 목표로 삼고 있습니다.</span>
         </p>
       </div>
     </section>
@@ -634,39 +668,46 @@
       <div class="section-header"><h2 class="section-title" style="font-size:2.3rem;">
         <span class="en">Frequently asked questions</span>
         <span class="de">Häufig gestellte Fragen</span>
+        <span class="ko">자주 묻는 질문</span>
       </h2></div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span class="en">Is recording the caller's speech legal in Germany (§201 StGB)?</span>
             <span class="de">Ist das Transkribieren in Deutschland legal (§201 StGB)?</span>
+            <span class="ko">독일에서 상대방의 음성을 텍스트로 변환하는 것이 합법인가요? (형법 §201)</span>
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a"><p>
             <span class="en">Yes, we designed for this from day one. Textify explicitly announces at pickup that the call is assisted by AI (the same pattern Google uses for Call Screen). No caller audio is secretly recorded or stored by default, ensuring full compliance with German criminal law regarding the spoken word.</span>
             <span class="de">Ja, wir haben dies von Tag eins an berücksichtigt. Textify kündigt bei der Rufannahme an, dass der Anruf von einer KI unterstützt wird. Es werden standardmäßig keine Audioaufnahmen des Anrufers gespeichert, was die vollständige Einhaltung des deutschen Strafrechts (Verletzung der Vertraulichkeit des Wortes) gewährleistet.</span>
+            <span class="ko">네, 기획 단계부터 철저히 고려했습니다. Textify는 전화를 받을 때 "이 통화는 AI의 도움을 받고 있습니다"라고 명시적으로 안내합니다(구글 Call Screen과 동일한 방식). 또한 사용자의 명시적인 동의 없이 상대방의 음성을 은밀하게 녹음하거나 서버에 저장하지 않으므로, 음성권에 대한 독일 형법을 완벽히 준수합니다.</span>
           </p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span class="en">How do you comply with GDPR and the EU AI Act?</span>
             <span class="de">Wie erfüllt ihr die DSGVO und den EU AI Act?</span>
+            <span class="ko">GDPR과 EU AI 법안은 어떻게 준수하나요?</span>
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a"><p>
             <span class="en">Under the EU AI Act, transparency is required. Our assisted-call announcement fully satisfies this disclosure requirement. For GDPR, call content is processed transiently to generate live suggestions and is never permanently stored without explicit consent.</span>
             <span class="de">Nach dem EU AI Act ist Transparenz erforderlich, was durch unsere automatische Ansage am Anrufanfang erfüllt wird. Gemäß DSGVO werden Anrufinhalte nur flüchtig verarbeitet, um Live-Vorschläge zu generieren, und niemals ohne ausdrückliche Zustimmung dauerhaft gespeichert.</span>
+            <span class="ko">EU AI 법안에 따르면 AI 사용에 대한 투명성 고지가 필수적이며, 우리의 통화 시작 안내 멘트가 이를 완벽히 충족합니다. 또한 GDPR 규정에 따라 통화 내용은 실시간 답변 생성을 위해 일시적으로만 처리되며, 명시적인 동의 없이는 절대 영구 저장되지 않습니다.</span>
           </p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
             <span class="en">What happens during the silence while I'm choosing?</span>
             <span class="de">Was passiert während der Stille, wenn ich eine Antwort auswähle?</span>
+            <span class="ko">제가 답변을 고르는 동안 발생하는 정적은 어떻게 처리되나요?</span>
             <span class="faq-arrow">▾</span>
           </button>
           <div class="faq-a"><p>
             <span class="en">Textify inserts natural conversational fillers like "Moment bitte" or "Lass mich kurz nachdenken" while you read and choose your reply. The AI also pre-analyzes context to generate options in under 2 seconds, minimizing any noticeable pause.</span>
             <span class="de">Textify fügt natürliche Füllwörter wie "Moment bitte" oder "Lass mich kurz nachdenken" ein, während du deine Antwort wählst. Die KI analysiert den Kontext vorab, um Optionen in unter 2 Sekunden zu generieren und Pausen zu minimieren.</span>
+            <span class="ko">Textify는 당신이 답변을 읽고 선택하는 동안 "잠시만요", "조금만 생각할게요"와 같은 자연스러운 추임새(Filler)를 삽입해 어색한 정적을 메워줍니다. 또한 통화 맥락을 실시간으로 분석해 2초 이내에 답변 옵션을 생성하므로 체감되는 지연 시간을 최소화했습니다.</span>
           </p></div>
         </div>
       </div>
@@ -679,10 +720,12 @@
           <h2>
             <span class="en">Be the first to try Textify</span>
             <span class="de">Gehöre zu den Ersten</span>
+            <span class="ko">Textify를 가장 먼저 만나보세요</span>
           </h2>
           <p>
             <span class="en">One tap closer to never dreading a phone call again.<br>No spam, just updates.</span>
             <span class="de">Nur einen Klick davon entfernt, nie wieder Angst vor dem Telefon zu haben.<br>Kein Spam, nur wichtige Updates.</span>
+            <span class="ko">가입 한 번으로 전화 공포증에서 완전히 해방되세요.<br>스팸 메일 없이 꼭 필요한 출시 소식만 전해드립니다.</span>
           </p>
           <form id="waitlistForm">
             <div class="form-group">
@@ -690,6 +733,7 @@
               <button type="submit" class="btn btn-primary">
                 <span class="en">Get Early Access</span>
                 <span class="de">Early Access Sichern</span>
+                <span class="ko">얼리 액세스 신청하기</span>
               </button>
             </div>
           </form>
@@ -699,10 +743,12 @@
           <h3>
             <span class="en">You're on the list!</span>
             <span class="de">Du stehst auf der Liste!</span>
+            <span class="ko">대기명단 등록 완료!</span>
           </h3>
           <p style="margin-bottom:0;">
             <span class="en">Thank you! We'll notify <strong id="successEmail" style="color:var(--color-lavender-main);"></strong> as soon as your beta spot opens.</span>
             <span class="de">Danke! Wir informieren <strong id="successEmailDe" style="color:var(--color-lavender-main);"></strong> sobald dein Beta-Platz verfügbar ist.</span>
+            <span class="ko">감사합니다! 베타 테스트 자리가 마련되는 대로 <strong id="successEmailKo" style="color:var(--color-lavender-main);"></strong> 이메일로 가장 먼저 알려드리겠습니다.</span>
           </p>
         </div>
       </div>
@@ -716,11 +762,13 @@
           <h3>
             <span class="en">Meet the Founder</span>
             <span class="de">Über den Gründer</span>
+            <span class="ko">창업자 소개</span>
           </h3>
-          <div class="role">Jinseok (Henry) Seo — <span class="en">Creator of Textify</span><span class="de">Entwickler von Textify</span></div>
+          <div class="role">Jinseok (Henry) Seo — <span class="en">Creator of Textify</span><span class="de">Entwickler von Textify</span><span class="ko">Textify 개발자</span></div>
           <p>
             <span class="en">Textify was built by a solo CS student with a clear thesis: Germany is the ideal launchpad due to its vast, measurable demand and the world's most advanced digital therapeutics reimbursement system (DiGA). A proven record of execution—including the Google Cloud AI Agent Challenge Grand Prize and selection for MIT GSW—ensures Textify ships fast, safe, and robustly.</span>
             <span class="de">Textify wurde von einem Informatikstudenten mit einer klaren These entwickelt: Deutschland ist der ideale Startpunkt aufgrund der messbaren Nachfrage und des weltweit fortschrittlichsten Erstattungssystems für digitale Gesundheitsanwendungen (DiGA). Bewiesene Umsetzungsstärke – einschließlich des Hauptpreises der Google Cloud AI Agent Challenge und der Teilnahme am MIT GSW – garantiert, dass Textify schnell, sicher und zuverlässig auf den Markt kommt.</span>
+            <span class="ko">Textify는 1인 컴퓨터 공학 전공 대학생에 의해 탄생했습니다. 측정 가능한 거대한 시장 수요와 세계에서 가장 선진화된 디지털 치료기기 급여 시스템(DiGA)을 갖춘 '독일'을 전략적 시작점으로 삼았습니다. Google Cloud AI Agent Challenge 대상 수상 및 MIT GSW 선정 등을 통해 검증된 실행력을 바탕으로, Textify를 세상에서 가장 빠르고 안전하게 시장에 선보이겠습니다.</span>
           </p>
         </div>
       </div>
@@ -735,10 +783,12 @@
       <p style="font-size:0.9rem;color:var(--color-text-body);margin-bottom:4px;">
         <span class="en">by <strong>Jinseok Seo</strong></span>
         <span class="de">von <strong>Jinseok Seo</strong></span>
+        <span class="ko"><strong>서진석</strong> 개발</span>
       </p>
       <p class="footer-origin">Kyungpook National University, Dept. of Computer Science<br>
         <span class="en">Made in Korea, built for Germany 🇩🇪</span>
         <span class="de">Entwickelt in Korea, gemacht für Deutschland 🇩🇪</span>
+        <span class="ko">한국에서 기술을 개발하고, 독일 시장을 위해 설계하다 🇩🇪</span>
       </p>
       <a href="mailto:henryseo711@gmail.com" style="font-size:0.9rem;color:var(--color-lavender-main);text-decoration:none;">henryseo711@gmail.com</a>
       <div class="footer-links">
@@ -755,6 +805,7 @@
       const btns = document.querySelectorAll('.lang-btn');
       btns[0].classList.toggle('active', lang === 'en');
       btns[1].classList.toggle('active', lang === 'de');
+      btns[2].classList.toggle('active', lang === 'ko');
       
       // Update interactive demo texts based on language
       if(state === 'RINGING') demoRestart();
@@ -792,31 +843,37 @@
       const em = document.getElementById('emailInput').value;
       document.getElementById('successEmail').innerText = em;
       document.getElementById('successEmailDe').innerText = em;
+      document.getElementById('successEmailKo').innerText = em;
       document.getElementById('formView').style.display = 'none';
       document.getElementById('successView').style.display = 'flex';
     });
 
     // Phone Demo
     const demoRoot = document.getElementById('demoRoot');
-    const CALL_TEXT = "Hallo! Ich habe ein Paket für Henner. Sind Sie zu Hause?";
     let state = 'RINGING';
 
     const renderDemo = () => {
       const isDe = document.body.classList.contains('lang-de');
-      const declineTxt = isDe ? 'Ablehnen' : 'Decline';
-      const useTxt = isDe ? 'Textify nutzen' : 'Use Textify';
-      const listeningTxt = isDe ? 'Textify hört zu' : 'Textify Listening';
-      const speakingTxt = isDe ? 'Textify spricht' : 'Textify Speaking';
-      const replyTitle = isDe ? 'Antworten' : 'Tap to Reply';
+      const isKo = document.body.classList.contains('lang-ko');
+      
+      const declineTxt = isKo ? '거절하기' : (isDe ? 'Ablehnen' : 'Decline');
+      const useTxt = isKo ? 'Textify 사용하기' : (isDe ? 'Textify nutzen' : 'Use Textify');
+      const listeningTxt = isKo ? 'Textify가 듣고 있습니다' : (isDe ? 'Textify hört zu' : 'Textify Listening');
+      const speakingTxt = isKo ? 'Textify가 말하는 중' : (isDe ? 'Textify spricht' : 'Textify Speaking');
+      const replyTitle = isKo ? '답변 탭하기' : (isDe ? 'Antworten' : 'Tap to Reply');
+      
+      const r1 = isKo ? '네, 문 앞에 놔주세요.' : (isDe ? 'Ja, bitte vor die Tür legen.' : 'Yes, please leave it at the door.');
+      const r2 = isKo ? '아니요, 이웃에게 맡겨주세요.' : (isDe ? 'Nein, bitte beim Nachbarn abgeben.' : 'No, please give it to a neighbor.');
+      const r3 = isKo ? '지금 바로 내려갈게요.' : (isDe ? 'Ich komme sofort runter.' : 'I will come down right now.');
       
       if (state === 'RINGING') {
         demoRoot.innerHTML = `<div class="view-ringing"><div class="caller-avatar"><svg width="40" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg></div><h3 class="caller-name">DHL Kurier</h3><p class="caller-id">Mobile Number</p><div class="call-controls"><button class="control-btn" onclick="demoEnd()"><div class="btn-circle bg-red"><svg width="24" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></div><span style="font-size:0.8rem;font-weight:600;color:var(--color-text-muted);">${declineTxt}</span></button><button class="control-btn" onclick="demoAnswer()"><div class="btn-circle bg-gradient"><svg width="24" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg></div><span style="font-size:0.8rem;font-weight:700;color:var(--color-lavender-main);">${useTxt}</span></button></div></div>`;
       } else if (state === 'ACTIVE') {
-        demoRoot.innerHTML = `<div class="view-active" style="display:flex;"><div class="chat-header"><div><div style="font-family:'Poppins',sans-serif;font-weight:700;">DHL Kurier</div><div class="chat-status" id="chatStatus"><span class="status-dot"></span>${listeningTxt}</div></div><button class="hangup-small" onclick="demoEnd()"><svg width="18" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div><div class="chat-bubbles" id="chatArea"><div class="bubble bubble-incoming"><div class="typing-dots" id="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><span id="transcriptionText" style="display:none;"></span></div></div><div class="options-panel" id="optionsPanel" style="display:none;animation:fadeUp 0.4s var(--spring-bouncy);"><div class="options-title">${replyTitle}</div><button class="reply-btn" onclick="demoReply('Ja, bitte vor die Tür legen.')"><span>"Ja, bitte vor die Tür legen."</span><span>👉</span></button><button class="reply-btn" onclick="demoReply('Nein, bitte beim Nachbarn abgeben.')"><span>"Nein, beim Nachbarn abgeben."</span><span>👉</span></button><button class="reply-btn" onclick="demoReply('Ich komme sofort runter.')"><span>"Ich komme sofort runter."</span><span>👉</span></button></div><div class="options-panel" id="speakingPanel" style="display:none;"><div class="options-title">${speakingTxt} <div class="audio-waves"><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div></div></div><button class="reply-btn selected" id="selectedReply">""</button></div></div>`;
+        demoRoot.innerHTML = `<div class="view-active" style="display:flex;"><div class="chat-header"><div><div style="font-family:'Poppins',sans-serif;font-weight:700;">DHL Kurier</div><div class="chat-status" id="chatStatus"><span class="status-dot"></span>${listeningTxt}</div></div><button class="hangup-small" onclick="demoEnd()"><svg width="18" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button></div><div class="chat-bubbles" id="chatArea"><div class="bubble bubble-incoming"><div class="typing-dots" id="typing"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><span id="transcriptionText" style="display:none;"></span></div></div><div class="options-panel" id="optionsPanel" style="display:none;animation:fadeUp 0.4s var(--spring-bouncy);"><div class="options-title">${replyTitle}</div><button class="reply-btn" onclick="demoReply('${r1}')"><span>"${r1}"</span><span>👉</span></button><button class="reply-btn" onclick="demoReply('${r2}')"><span>"${r2}"</span><span>👉</span></button><button class="reply-btn" onclick="demoReply('${r3}')"><span>"${r3}"</span><span>👉</span></button></div><div class="options-panel" id="speakingPanel" style="display:none;"><div class="options-title">${speakingTxt} <div class="audio-waves"><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div></div></div><button class="reply-btn selected" id="selectedReply">""</button></div></div>`;
       } else if (state === 'ENDED') {
-        const handledTxt = isDe ? 'Anruf beendet' : 'Call Handled';
-        const handledDesc = isDe ? 'Du hast den Anruf komplett durch Tippen gemeistert.' : 'You just managed a phone call entirely by tapping.';
-        const restartTxt = isDe ? 'Erneut testen' : 'Test Again';
+        const handledTxt = isKo ? '통화 완료' : (isDe ? 'Anruf beendet' : 'Call Handled');
+        const handledDesc = isKo ? '당신은 방금 탭하는 것만으로 전화를 완벽히 끝마쳤습니다.' : (isDe ? 'Du hast den Anruf komplett durch Tippen gemeistert.' : 'You just managed a phone call entirely by tapping.');
+        const restartTxt = isKo ? '다시 테스트하기' : (isDe ? 'Erneut testen' : 'Test Again');
         demoRoot.innerHTML = `<div class="view-ended" style="display:flex;"><div class="end-icon"><svg width="32" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg></div><h3 class="end-title">${handledTxt}</h3><p class="end-desc">${handledDesc}</p><button class="btn btn-primary" style="padding:10px 24px;font-size:0.9rem;" onclick="demoRestart()">${restartTxt}</button></div>`;
       }
     };
@@ -826,8 +883,13 @@
       setTimeout(() => {
         document.getElementById('typing').style.display = 'none';
         const t = document.getElementById('transcriptionText'); t.style.display = 'inline';
+        
+        const isDe = document.body.classList.contains('lang-de');
+        const isKo = document.body.classList.contains('lang-ko');
+        const CALL_TEXT = isKo ? "안녕하세요! Henner씨 택배가 있습니다. 지금 집에 계신가요?" : (isDe ? "Hallo! Ich habe ein Paket für Henner. Sind Sie zu Hause?" : "Hello! I have a package for Henner. Are you at home?");
+        
         let i = 0;
-        function tw() { if (i < CALL_TEXT.length) { t.innerHTML += CALL_TEXT.charAt(i); i++; setTimeout(tw, 30); } else { setTimeout(() => { const isDe = document.body.classList.contains('lang-de'); document.getElementById('chatStatus').innerHTML = '&bull; ' + (isDe ? 'Wartet auf Antwort' : 'Awaiting your reply'); document.getElementById('chatStatus').style.color = 'var(--color-text-muted)'; document.getElementById('optionsPanel').style.display = 'block'; }, 600); } }
+        function tw() { if (i < CALL_TEXT.length) { t.innerHTML += CALL_TEXT.charAt(i); i++; setTimeout(tw, 30); } else { setTimeout(() => { const waitTxt = isKo ? '답변을 기다리는 중' : (isDe ? 'Wartet auf Antwort' : 'Awaiting your reply'); document.getElementById('chatStatus').innerHTML = '&bull; ' + waitTxt; document.getElementById('chatStatus').style.color = 'var(--color-text-muted)'; document.getElementById('optionsPanel').style.display = 'block'; }, 600); } }
         tw();
       }, 1500);
     }
@@ -836,8 +898,12 @@
       document.getElementById('optionsPanel').style.display = 'none';
       document.getElementById('speakingPanel').style.display = 'block';
       document.getElementById('selectedReply').innerText = '"' + text + '"';
+      
       const isDe = document.body.classList.contains('lang-de');
-      document.getElementById('chatStatus').innerHTML = '<span class="status-dot"></span>' + (isDe ? 'Textify spricht' : 'Textify Speaking');
+      const isKo = document.body.classList.contains('lang-ko');
+      const spkTxt = isKo ? 'Textify가 말하는 중' : (isDe ? 'Textify spricht' : 'Textify Speaking');
+      
+      document.getElementById('chatStatus').innerHTML = '<span class="status-dot"></span>' + spkTxt;
       document.getElementById('chatStatus').style.color = 'var(--color-mint-main)';
       const ca = document.getElementById('chatArea'), o = document.createElement('div');
       o.className = 'bubble bubble-outgoing';
